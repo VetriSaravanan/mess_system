@@ -1,0 +1,35 @@
+{% extends 'base_generic.html' %}
+{% block title %}Leave List{% endblock %}
+{% block content %}
+
+<h2 class="text-2xl font-bold mb-4">Leave Records</h2>
+
+<!-- Add filter buttons -->
+<div class="mb-4">
+    <a href="?filter=all" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">All</a>
+    <a href="?filter=last_7_days" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Last 7 Days</a>
+    <a href="?filter=this_month" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">This Month</a>
+</div>
+
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="py-3 px-6 text-left">Student</th>
+            <th class="py-3 px-6 text-left">Start Date</th>
+            <th class="py-3 px-6 text-left">End Date</th>
+            <th class="py-3 px-6 text-left">Reason</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for leave in leave_list %}
+        <tr class="border-b">
+            <td class="py-4 px-6">{{ leave.student }}</td>
+            <td class="py-4 px-6">{{ leave.start_date }}</td>
+            <td class="py-4 px-6">{{ leave.end_date }}</td>
+            <td class="py-4 px-6">{{ leave.reason }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

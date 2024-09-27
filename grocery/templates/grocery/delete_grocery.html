@@ -1,0 +1,19 @@
+<!-- grocery/templates/grocery/delete_grocery.html -->
+{% extends 'base_generic.html' %}
+
+{% block title %}Delete Grocery Item{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold text-red-600 mb-4">Delete Grocery Item</h2>
+    
+    <p>Are you sure you want to delete <strong>{{ grocery.name }}</strong> from the inventory?</p>
+    
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Confirm Delete
+        </button>
+    </form>
+</div>
+{% endblock %}

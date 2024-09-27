@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Recorded</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white shadow-md rounded-lg p-8 text-center">
+            <!-- Optional Success Icon -->
+            <div class="text-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m5 4.5A9.5 9.5 0 1112.5 2A9.5 9.5 0 0119 7.5A9.5 9.5 0 0114 20M7.5 15.5L5 18" />
+                </svg>
+            </div>
+
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">Attendance Recorded</h1>
+            <p class="text-gray-600 mb-2">Your attendance has been successfully recorded.</p>
+            <p class="text-gray-600">You will receive a notification shortly.</p>
+
+            <!-- Return Button with hover effect -->
+            <a href="{% url 'home' %}" class="mt-4 inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+                Go Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+</html>

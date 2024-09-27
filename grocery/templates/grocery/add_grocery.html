@@ -1,0 +1,44 @@
+<!-- grocery/templates/grocery/add_grocery.html -->
+{% extends 'base_generic.html' %}
+
+{% block title %}Add Grocery Item{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Add New Grocery Item</h2>
+    
+    <form method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        
+        <!-- Grocery Name -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Item Name</label>
+            <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        
+        <!-- Quantity -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        
+        <!-- Category -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="category">Category</label>
+            <select name="category" id="category" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm">
+                <option value="vegetables">Vegetables</option>
+                <option value="grains">Grains</option>
+                <option value="dairy">Dairy</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Add Item
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

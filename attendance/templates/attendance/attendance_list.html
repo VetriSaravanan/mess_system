@@ -1,0 +1,38 @@
+{% extends 'base_generic.html' %}
+{% block title %}Attendance List{% endblock %}
+{% block content %}
+
+<h2>Attendance Records</h2>
+
+<!-- Add filter buttons -->
+<a href="?filter=all">All</a> | 
+<a href="?filter=last_7_days">Last 7 Days</a> | 
+<a href="?filter=this_month">This Month</a>
+
+<!-- Display the attendance table -->
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Student</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if attendance_list %}
+        {% for record in attendance_list %}
+        <tr>
+            <td>{{ record.date }}</td>
+            <td>{{ record.student }}</td>
+            <td>{{ record.consumed_meal|yesno:"Present,Absent" }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">No attendance records found</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

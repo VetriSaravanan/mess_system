@@ -1,0 +1,38 @@
+<!-- grocery/templates/grocery/grocery_list.html -->
+<h2>Grocery List</h2>
+
+<!-- Link to add a new grocery item -->
+<a href="{% url 'add_grocery' %}" class="bg-blue-500 text-white py-2 px-4 rounded">Add Grocery</a>
+
+<!-- Grocery Table -->
+<table class="min-w-full mt-4 bg-white border">
+    <thead>
+        <tr class="bg-gray-200 text-gray-600">
+            <th class="py-2 px-4 border-b">Name</th>
+            <th class="py-2 px-4 border-b">Stock Quantity</th>
+            <th class="py-2 px-4 border-b">Unit Price</th>
+            <th class="py-2 px-4 border-b">Daily Consumption</th>
+            <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for grocery in groceries %}
+        <tr class="{% if grocery.stock_quantity < 10 %}bg-red-100{% endif %}">
+            <td class="py-2 px-4 border-b">{{ grocery.name }}</td>
+            <td class="py-2 px-4 border-b">{{ grocery.stock_quantity }}</td>
+            <td class="py-2 px-4 border-b">{{ grocery.unit_price }}</td>
+            <td class="py-2 px-4 border-b">{{ grocery.daily_consumption }}</td>
+            <td class="py-2 px-4 border-b">
+                <!-- Edit and Delete links for each grocery item -->
+                <a href="{% url 'update_grocery' grocery.pk %}" class="text-blue-500 hover:underline">Edit</a> |
+                <a href="{% url 'delete_grocery' grocery.pk %}" class="text-red-500 hover:underline">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pagination or message if no groceries available -->
+{% if not groceries %}
+<p class="text-center mt-4 text-red-500">No grocery items available.</p>
+{% endif %}

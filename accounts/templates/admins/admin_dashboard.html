@@ -1,0 +1,82 @@
+<!-- admin/templates/admin/admin_dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navbar -->
+        <nav class="bg-blue-600 py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-white text-2xl font-bold">Admin Dashboard</h1>
+                <a href="{% url 'logout' %}" class="bg-red-500 text-white py-2 px-4 rounded-lg">Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="flex-1 container mx-auto p-6">
+            <div class="bg-white shadow-md rounded-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Welcome, Admin!</h2>
+                <p class="text-gray-600 mb-6">Manage the entire system efficiently with the following tools:</p>
+
+                <!-- Cards for admin features -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Manage Students -->
+                    <div class="bg-green-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Manage Students</h3>
+                        <p class="text-gray-700">Add, update, or remove students from the system.</p>
+                        <a href="{% url 'student_list' %}" class="mt-4 inline-block bg-green-500 text-white py-2 px-4 rounded">Manage Students</a>
+                    </div>
+
+                    <!-- Manage Attendance -->
+                    <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Manage Attendance</h3>
+                        <p class="text-gray-700">Record and review student attendance.</p>
+                        <a href="{% url 'attendance_list' %}" class="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded">Manage Attendance</a>
+                    </div>
+
+                    <!-- Billing -->
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Billing</h3>
+                        <p class="text-gray-700">Monitor and process student billing.</p>
+                        <a href="{% url 'bill_list' %}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">Manage Billing</a>
+                    </div>
+
+                    <!-- Grocery Management -->
+                    <div class="bg-purple-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Grocery Management</h3>
+                        <p class="text-gray-700">Add, update, or track groceries.</p>
+                        <a href="{% url 'grocery_list' %}" class="mt-4 inline-block bg-purple-500 text-white py-2 px-4 rounded">Manage Groceries</a>
+                    </div>
+
+                    <!-- Meal Plans -->
+                    <div class="bg-pink-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Meal Plans</h3>
+                        <p class="text-gray-700">Create and modify meal plans.</p>
+                        <a href="{% url 'meals_index' %}" class="mt-4 inline-block bg-pink-500 text-white py-2 px-4 rounded">Manage Meals</a>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="bg-indigo-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-lg font-bold mb-2">Notifications</h3>
+                        <p class="text-gray-700">Send notifications to students and staff.</p>
+                        <a href="{% url 'notification_list' %}" class="mt-4 inline-block bg-indigo-500 text-white py-2 px-4 rounded">Manage Notifications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 py-4 mt-auto">
+            <div class="container mx-auto text-center text-white">
+                &copy; 2024 Hostel Mess Management System. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
