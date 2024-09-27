@@ -1,0 +1,38 @@
+{% load static %}  <!-- Load the static tag library -->
+
+{% extends 'base_generic.html' %}
+
+{% block title %}Meal Plan Overview{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-4">Meal Plan Overview</h2>
+
+<a href="{% url 'add_meal_plan' %}" class="bg-blue-500 text-white py-2 px-4 rounded">Add New Meal Plan</a>
+
+<table class="table-auto w-full mt-6">
+    <thead>
+        <tr>
+            <th class="px-4 py-2">Day</th>
+            <th class="px-4 py-2">Meal Type</th>
+            <th class="px-4 py-2">Description</th>
+            <th class="px-4 py-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for meal_plan in meal_plans %}
+        <tr>
+            <td class="border px-4 py-2">{{ meal_plan.day_of_week }}</td>
+            <td class="border px-4 py-2">{{ meal_plan.meal_type }}</td>
+            <td class="border px-4 py-2">{{ meal_plan.description }}</td>
+            <td class="border px-4 py-2">
+                <a href="{% url 'edit_meal_plan' meal_plan.pk %}" class="bg-green-500 text-white py-1 px-2 rounded">Edit</a>
+                <form action="{% url 'delete_meal_plan' meal_plan.pk %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 text-white py-1 px-2 rounded">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

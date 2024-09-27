@@ -1,0 +1,34 @@
+<!-- billing/templates/billing/pay_bill.html -->
+{% extends 'base_generic.html' %}
+
+{% block title %}Pay Bill{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Pay Your Bill</h2>
+        
+        <!-- Bill Details -->
+        <div class="mb-6">
+            <p class="text-lg"><strong>Student:</strong> {{ bill.student.name }}</p>
+            <p class="text-lg"><strong>Total Amount Due:</strong> ₹{{ bill.calculate_total }}</p>
+            <p class="text-lg"><strong>Due Date:</strong> {{ bill.due_date }}</p>
+        </div>
+        
+        <!-- Payment Form -->
+        <form method="POST" action="{% url 'pay_bill' bill.id %}">
+            {% csrf_token %}
+            
+            <!-- Billing Information -->
+            {{ form.as_p }}
+            
+            <!-- Payment Button -->
+            <div class="mt-6">
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                    Submit Payment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- mess/templates/mess/meal_plan_index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Weekly Meal Plan</h1>
+
+        <!-- Meal Plan Table -->
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-blue-500 text-white">Day</th>
+                    <th class="py-2 px-4 bg-blue-500 text-white">Breakfast</th>
+                    <th class="py-2 px-4 bg-blue-500 text-white">Lunch</th>
+                    <th class="py-2 px-4 bg-blue-500 text-white">Dinner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample rows -->
+                <tr>
+                    <td class="py-2 px-4 border">Monday</td>
+                    <td class="py-2 px-4 border">Pancakes</td>
+                    <td class="py-2 px-4 border">Rice and Curry</td>
+                    <td class="py-2 px-4 border">Pizza</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+{% block title %}Delete Meal Plan{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-4">Delete Meal Plan</h2>
+
+<p>Are you sure you want to delete the meal plan for {{ meal_plan.day_of_week }} - {{ meal_plan.meal_type }}?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded">Confirm Delete</button>
+    <a href="{% url 'meal_plan_overview' %}" class="bg-gray-500 text-white py-2 px-4 rounded">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+{% block title %}Mess Staff Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-4">Mess Staff Dashboard</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Link to manage groceries -->
+    <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">Manage Groceries</h3>
+        <p>View, add, update, or remove grocery stock for daily meals.</p>
+        <a href="{% url 'grocery_list' %}" class="bg-blue-500 text-white py-2 px-4 rounded mt-4 block">Manage Groceries</a>
+    </div>
+
+    <!-- Link to manage attendance -->
+    <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">Manage Attendance</h3>
+        <p>Check student attendance for mess meals and update records.</p>
+        <a href="{% url 'attendance_list' %}" class="bg-yellow-500 text-white py-2 px-4 rounded mt-4 block">Manage Attendance</a>
+    </div>
+
+    <!-- Link to manage meal plans -->
+    <div class="bg-green-100 p-4 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">Meal Plan</h3>
+        <p>Review and update the weekly meal plan.</p>
+        <a href="{% url 'meal_plan_index' %}" class="bg-green-500 text-white py-2 px-4 rounded mt-4 block">Manage Meal Plan</a>
+    </div>
+
+    <!-- Link to manage menus -->
+    <div class="bg-purple-100 p-4 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">View Weekly Menu</h3>
+        <p>Check the daily menu for the week.</p>
+        <a href="{% url 'mess_menu' %}" class="bg-purple-500 text-white py-2 px-4 rounded mt-4 block">View Menu</a>
+    </div>
+</div>
+{% endblock %}

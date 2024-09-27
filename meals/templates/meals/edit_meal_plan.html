@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+{% block title %}Edit Meal Plan{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-4">Edit Meal Plan</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Update Meal Plan</button>
+</form>
+
+<a href="{% url 'meal_plan_index' %}" class="mt-4 inline-block text-blue-500">Back to Meal Plans</a>
+{% endblock %}
