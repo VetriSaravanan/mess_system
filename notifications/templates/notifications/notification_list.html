@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Notifications</h2>
+
+<!-- Display the list of notifications -->
+<ul class="list-disc list-inside">
+    {% for notification in notifications %}
+    <li class="mb-2">
+        <h3 class="text-xl font-semibold">{{ notification.title }}</h3>
+        <p>{{ notification.content }}</p>
+        <p class="text-sm text-gray-500">Sent on: {{ notification.date_sent }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- If no notifications are found -->
+{% if notifications|length == 0 %}
+<p>No notifications found.</p>
+{% endif %}
+{% endblock %}

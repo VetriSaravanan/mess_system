@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+{% block title %}Edit Notification{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Edit Notification</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Save Changes</button>
+</form>
+{% endblock %}
